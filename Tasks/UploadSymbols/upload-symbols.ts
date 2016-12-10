@@ -32,7 +32,7 @@ async function run() {
 }
 
 function uploadSymbols(filePath: string, appId : string, externalAccessToken: string) : Q.Promise<void> {
-    let raygunUrl = 'https://app.raygun.io/upload/symbols/' + appId + '?authToken=' + externalAccessToken;
+    let raygunUrl = 'https://app.raygun.com/dashboard/${appId}/settings/symbols?authToken=${externalAccessToken}';
     let options : request.CoreOptions = {
         followAllRedirects: true,
         strictSSL: false,
@@ -47,7 +47,7 @@ function uploadSymbols(filePath: string, appId : string, externalAccessToken: st
             defer.reject(err);
         }
         else if (httpResponse.statusCode != 200) {
-            defer.reject('Uploading of symbols failed');
+            defer.reject(getFullErrorMessage(httpResponse, 'Uploading of symbols failed'));
         }
         else {
             defer.resolve(null);
@@ -55,6 +55,14 @@ function uploadSymbols(filePath: string, appId : string, externalAccessToken: st
     });
 
     return defer.promise;
+}
+
+function getFullErrorMessage(httpResponse, message: string): string {
+    var fullMessage = message +
+        '\nHttpResponse.statusCode=' + httpResponse.statusCode +
+        '\nHttpResponse.statusMessage=' + httpResponse.statusMessage +
+        '\nHttpResponse=\n' + JSON.stringify(httpResponse);
+    return fullMessage;
 }
 
 run();

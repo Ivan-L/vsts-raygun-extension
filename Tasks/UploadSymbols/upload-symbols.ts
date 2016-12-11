@@ -5,11 +5,10 @@
 'use strict';
 import tl = require('vsts-task-lib/task');
 import fs = require('fs');
-import os = require('os');
 import path = require('path');
 import Q = require('q');
 import request = require('request');
-
+import utils = require('./utils.js');
 
 async function run() {
     try
@@ -22,7 +21,12 @@ async function run() {
 
         tl.checkPath(symbolsPath, "Symbols Path");
 
-        await uploadSymbols(symbolsPath, appId, externalAccessToken);
+        let stats: tl.FsStats = tl.stats(symbolsPath);
+        if (!stats.isDirectory())
+            throw new Error(tl.loc('NoSymbolFilesFound', symbolsPath));
+
+        var archive = await prepareSymbols(symbolsPath);
+        await uploadSymbols(archive, appId, externalAccessToken);
 
         tl.setResult(tl.TaskResult.Succeeded, tl.loc('SuccessfullyUploaded'));
     }
@@ -31,8 +35,27 @@ async function run() {
     }
 }
 
+function prepareSymbols(symbolsPath: string): Q.Promise<string> {
+    tl.debug("-- Prepare symbols")
+    let defer = Q.defer<string>();
+    let stat = fs.statSync(symbolsPath);
+    tl.debug(`---- Creating symbols from ${symbolsPath}`);
+    let zipStream = utils.createZipStream(symbolsPath, utils.isDsym(symbolsPath));
+    let workDir = tl.getVariable("System.DefaultWorkingDirectory");
+    let zipName = path.join(workDir, `${path.basename(symbolsPath)}.zip`); 
+    utils.createZipFile(zipStream, zipName).
+        then(() => {
+            tl.debug(`---- Symbol file: ${zipName}`)
+            defer.resolve(zipName);
+        });
+
+    return defer.promise;
+}
+
 function uploadSymbols(filePath: string, appId : string, externalAccessToken: string) : Q.Promise<void> {
-    let raygunUrl = 'https://app.raygun.com/dashboard/${appId}/settings/symbols?authToken=${externalAccessToken}';
+    let raygunUrl : string = `https://app.raygun.com/dashboard/${appId}/settings/symbols`;
+    tl.debug(`-- Uploading to Raygun url ${raygunUrl}`);
+    raygunUrl += `?authToken=${externalAccessToken}`;
     let options : request.CoreOptions = {
         followAllRedirects: true,
         strictSSL: false,
@@ -59,9 +82,8 @@ function uploadSymbols(filePath: string, appId : string, externalAccessToken: st
 
 function getFullErrorMessage(httpResponse, message: string): string {
     var fullMessage = message +
-        '\nHttpResponse.statusCode=' + httpResponse.statusCode +
-        '\nHttpResponse.statusMessage=' + httpResponse.statusMessage +
-        '\nHttpResponse=\n' + JSON.stringify(httpResponse);
+        '\nstatusCode=' + httpResponse.statusCode +
+        '\nstatusMessage=' + httpResponse.statusMessage;
     return fullMessage;
 }
 

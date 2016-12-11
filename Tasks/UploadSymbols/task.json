@@ -55,6 +55,6 @@
     },
     "messages": {
         "SuccessfullyUploaded": "Successfully uploaded symbols to Raygun",
-        "NoIpaFilesFound": "No symbol files found using pattern: %s"
+        "NoSymbolFilesFound": "No symbol files found at: %s"
     }
 }

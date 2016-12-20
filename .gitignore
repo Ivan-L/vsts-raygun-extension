@@ -16,3 +16,5 @@ gulp-tsc-tmp-*
 
 *.vsix
 *.zip
+
+.DS_Store

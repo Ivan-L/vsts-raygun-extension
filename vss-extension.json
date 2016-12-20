@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "raygun",
     "name": "Raygun",
-    "version": "0.1.8",
+    "version": "0.1.12",
     "publisher": "ivan-prod",
     "description": "Provides a task for uploading symbols to Raygun from a TFS/Team Services build or release definition",
     "categories": [
@@ -37,7 +37,7 @@
     },
     "links": {
         "getstarted": {
-            "uri": "https://github.com/Ivan-L/vsts-raygun-extension/"
+            "uri": "https://github.com/Ivan-L/vsts-raygun-extension"
         },
         "support": {
             "uri": "https://github.com/Ivan-L/vsts-raygun-extension/issues"
@@ -46,6 +46,10 @@
     "files": [
         {
             "path": "_build/Tasks/UploadSymbols"
+        },
+        {
+            "path": "images",
+            "addressable": true
         }
     ],
     "scope": [

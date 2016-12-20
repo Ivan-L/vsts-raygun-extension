@@ -1,8 +1,8 @@
 {
-  "loc.friendlyName": "Upload symbols to Raygun",
-  "loc.helpMarkDown": "",
+  "loc.friendlyName": "Upload Symbols to Raygun",
+  "loc.helpMarkDown": "[More Information](https://marketplace.visualstudio.com/items?itemName=ivanl-test.vsts-raygun-extension-dev)",
   "loc.description": "Add dSYM files to an existing Raygun application to symbolicate crash reports",
-  "loc.instanceNameFormat": "Upload symbols to Raygun",
+  "loc.instanceNameFormat": "Upload Symbols to Raygun",
   "loc.input.label.authType": "Authentication Method",
   "loc.input.label.serviceEndpoint": "Service Endpoint",
   "loc.input.help.serviceEndpoint": "The TFS/Team Services service endpoint that specifies the identity used to upload the symbols.",

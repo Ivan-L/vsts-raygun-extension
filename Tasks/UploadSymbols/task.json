@@ -1,10 +1,10 @@
 {
     "id": "23ADCA05-F30F-4725-A18A-23BC83DC61E6",
     "name": "UploadSymbols",
-    "friendlyName": "Upload symbols to Raygun",
+    "friendlyName": "Upload Symbols to Raygun",
     "description": "Add dSYM files to an existing Raygun application to symbolicate crash reports",
-    "helpMarkDown": "",
-    "category": "Build",
+    "helpMarkDown": "[More Information](https://marketplace.visualstudio.com/items?itemName=ivanl-test.vsts-raygun-extension-dev)",
+    "category": "Utility",
     "visibility": [
         "Build"
     ],
@@ -12,9 +12,9 @@
     "version": {
         "Major": 0,
         "Minor": 1,
-        "Patch": 8
+        "Patch": 12
     },
-    "instanceNameFormat": "Upload symbols to Raygun",
+    "instanceNameFormat": "Upload Symbols to Raygun",
     "inputs": [
         {
             "name": "authType",

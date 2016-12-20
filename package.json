@@ -1,0 +1,35 @@
+{
+  "name": "vsts-raygun-extension",
+  "version": "0.1.8",
+  "description": "A TFS/Team Services task for uploading symbols to Raygun.",
+  "devDependencies": {
+    "adm-zip": "0.4.7",
+    "del": "^2.2.2",
+    "gulp": "3.9.1",
+    "gulp-util": "3.0.4",
+    "minimatch": "3.0.2",
+    "minimist": "1.1.1",
+    "mocha": "2.3.3",
+    "mocha-junit-reporter": "^1.12.1",
+    "node-uuid": "1.4.6",
+    "q": "1.4.1",
+    "semver": "4.3.3",
+    "shelljs": "^0.3.0",
+    "sync-request": "3.0.1",
+    "tfx-cli": "^0.3.40",
+    "tslint": "^3.15.1",
+    "typescript": "1.8.7",
+    "validator": "3.33.0",
+    "yargs": "^6.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ivan-L/vsts-raygun-extension.git"
+  },
+  "author": "Ivan Lazarov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ivan-L/vsts-raygun-extension/issues"
+  },
+  "homepage": "https://github.com/Ivan-L/vsts-raygun-extension"
+}

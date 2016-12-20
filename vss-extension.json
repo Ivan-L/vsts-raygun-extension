@@ -1,0 +1,126 @@
+{
+    "manifestVersion": 1,
+    "id": "raygun",
+    "name": "Raygun",
+    "version": "0.1.8",
+    "publisher": "ivan-prod",
+    "description": "Provides a task for uploading symbols to Raygun from a TFS/Team Services build or release definition",
+    "categories": [
+        "Build and release"
+    ],
+    "tags": [
+        "deploy",
+        "release",
+        "iOS",
+        "Xcode",
+        "Apple",
+        "iPad",
+        "iPhone",
+        "tvOS",
+        "watchOS"
+    ],
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "icons": {
+        "default": "raygun_default.png"
+    },
+    "visibility": [
+        "Build and release"
+    ],
+    "content":{
+        "details": {
+            "path": "docs/vsts-README.md"
+        }
+    },
+    "links": {
+        "getstarted": {
+            "uri": "https://github.com/Ivan-L/vsts-raygun-extension/"
+        },
+        "support": {
+            "uri": "https://github.com/Ivan-L/vsts-raygun-extension/issues"
+        }
+    },
+    "files": [
+        {
+            "path": "_build/Tasks/UploadSymbols"
+        }
+    ],
+    "scope": [
+        "vso.build",
+        "vso.serviceendpoint"
+    ],
+    "contributions": [
+        {
+            "id": "upload-symbols",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [ "ms.vss-distributed-task.tasks" ],
+            "properties": {
+                "name": "_build/Tasks/UploadSymbols"
+            }
+        },
+        {
+            "id": "raygun-service-endpoint",
+            "description": "RaygunAuthenticationEndpoint",
+            "type": "ms.vss-endpoint.service-endpoint-type",
+            "targets": [
+                "ms.vss-endpoint.endpoint-types"
+            ],
+            "properties": {
+                "name": "raygun",
+                "displayName": "Raygun",
+                "url": "https://raygun.com/",
+                "inputDescriptors": [],
+                "authenticationSchemes": [
+                    {
+                        "type": "ms.vss-endpoint.endpoint-auth-scheme-token",
+                        "displayName": "External Access Token",
+                        "headers": [],
+                        "inputDescriptors": [
+                            {
+                                "id": "apitoken",
+                                "name": "External Access Token",
+                                "description": "You can create this token within your <a href=\"https://app.raygun.io/user\" target=\"_blank\">user settings</a> in Raygun in the External Access Token section.",
+                                "inputMode": "passwordbox",
+                                "isConfidential": true,
+                                "validation": {
+                                    "isRequired": true,
+                                    "dataType": "string"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "ms.vss-endpoint.endpoint-auth-scheme-basic",
+                        "inputDescriptors": [
+                            {
+                                "id": "username",
+                                "name": "Raygun E-mail",
+                                "description": "The e-mail address of the service account used to authenticate with Raygun.",
+                                "inputMode": "textbox",
+                                "isConfidential": false,
+                                "validation": {
+                                    "isRequired": true,
+                                    "dataType": "string"
+                                }
+                            },
+                            {
+                                "id": "password",
+                                "name": "Password",
+                                "description": "Password for the account that is connecting to Raygun.",
+                                "inputMode": "passwordbox",
+                                "isConfidential": true,
+                                "validation": {
+                                    "isRequired": true,
+                                    "dataType": "string"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

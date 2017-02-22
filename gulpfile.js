@@ -43,8 +43,8 @@ gulp.task('default', ['build']);
 var devManifestOverride = {
     public: false,
     name: "Raygun -Dev",
-    id: "vsts-raygun-extension-dev",
-    publisher: "ivanl-test"
+    id: "dev-vsts-extension",
+    publisher: "raygun"
 };
 
 var prodManifestOverride = {

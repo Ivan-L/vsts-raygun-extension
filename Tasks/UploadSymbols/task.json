@@ -1,5 +1,5 @@
 {
-    "id": "23ADCA05-F30F-4725-A18A-23BC83DC61E6",
+    "id": "E7853470-0A07-452A-8F96-3B706E10CA37",
     "name": "UploadSymbols",
     "friendlyName": "Upload Symbols to Raygun",
     "description": "Add dSYM files to an existing Raygun application to symbolicate crash reports",

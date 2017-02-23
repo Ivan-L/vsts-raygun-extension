@@ -2,7 +2,10 @@
     "manifestVersion": 1,
     "id": "vsts-extension",
     "name": "Raygun",
-    "version": "1.0.0",
+    "version": "1.0.1",
+    "galleryFlags": [
+        "Public"
+    ],
     "publisher": "raygun",
     "description": "Provides a task for uploading symbols to Raygun from a TFS/Team Services build or release definition",
     "categories": [

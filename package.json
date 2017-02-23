@@ -1,6 +1,6 @@
 {
   "name": "vsts-raygun-extension",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A TFS/Team Services task for uploading symbols to Raygun.",
   "devDependencies": {
     "adm-zip": "0.4.7",

@@ -10,8 +10,8 @@
   ],
   "author": "Ivan Lazarov",
   "version": {
-    "Major": 0,
-    "Minor": 9,
+    "Major": 1,
+    "Minor": 0,
     "Patch": 0
   },
   "instanceNameFormat": "ms-resource:loc.instanceNameFormat",
@@ -93,6 +93,9 @@
     "NoSymbolFilesFound": "ms-resource:loc.messages.NoSymbolFilesFound",
     "Filename": "ms-resource:loc.messages.Filename",
     "CompressingSymbols": "ms-resource:loc.messages.CompressingSymbols",
-    "UploadingSymbols": "ms-resource:loc.messages.UploadingSymbols"
+    "UploadingSymbols": "ms-resource:loc.messages.UploadingSymbols",
+    "ServerErrorGeneric": "ms-resource:loc.messages.ServerErrorGeneric",
+    "ServerErrorUnauthorized": "ms-resource:loc.messages.ServerErrorUnauthorized",
+    "ServerErrorNotFound": "ms-resource:loc.messages.ServerErrorNotFound"
   }
 }

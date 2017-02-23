@@ -107,7 +107,17 @@ function uploadSymbols(filePath: string, appId : string, options : request.CoreO
         if (err) {
             defer.reject(err);
         } else if (httpResponse.statusCode !== 200) {
-            defer.reject(getFullErrorMessage(httpResponse, 'Uploading of symbols failed'));
+            switch (httpResponse.statusCode) {
+                case 401:
+                    defer.reject(tl.loc('ServerErrorUnauthorized'));
+                    break;
+                case 404:
+                    defer.reject(tl.loc('ServerErrorNotFound', appId));
+                    break;
+                default:
+                    defer.reject(getFullErrorMessage(httpResponse, tl.loc('ServerErrorGeneric')));
+                    break;
+            }
         } else {
             defer.resolve();
         }

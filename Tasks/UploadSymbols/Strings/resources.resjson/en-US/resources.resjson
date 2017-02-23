@@ -1,6 +1,6 @@
 {
   "loc.friendlyName": "Upload Symbols to Raygun",
-  "loc.helpMarkDown": "[More Information](https://marketplace.visualstudio.com/items?itemName=ivanl-test.vsts-raygun-extension-dev)",
+  "loc.helpMarkDown": "[More Information](https://marketplace.visualstudio.com/items?itemName=raygun.vsts-extension)",
   "loc.description": "Add dSYM files to an existing Raygun application to symbolicate crash reports",
   "loc.instanceNameFormat": "Upload Symbols to Raygun",
   "loc.input.label.authType": "Authentication Method",
@@ -20,5 +20,8 @@
   "loc.messages.NoSymbolFilesFound": "No symbol files found at: %s",
   "loc.messages.Filename": "symbols=%s",
   "loc.messages.CompressingSymbols": "Compressing symbols",
-  "loc.messages.UploadingSymbols": "Uploading symbols"
+  "loc.messages.UploadingSymbols": "Uploading symbols",
+  "loc.messages.ServerErrorGeneric": "Uploading of symbols failed.",
+  "loc.messages.ServerErrorUnauthorized": "Uploading of symbols failed with error 'Unauthorized'. Please check the credentials used.",
+  "loc.messages.ServerErrorNotFound": "Uploading of symbols failed with error 'Not Found'. Please make sure the Raygun application '%s' exists."
 }

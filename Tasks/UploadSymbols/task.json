@@ -3,15 +3,15 @@
     "name": "UploadSymbols",
     "friendlyName": "Upload Symbols to Raygun",
     "description": "Add dSYM files to an existing Raygun application to symbolicate crash reports",
-    "helpMarkDown": "[More Information](https://marketplace.visualstudio.com/items?itemName=ivanl-test.vsts-raygun-extension-dev)",
+    "helpMarkDown": "[More Information](https://marketplace.visualstudio.com/items?itemName=raygun.vsts-extension)",
     "category": "Utility",
     "visibility": [
         "Build"
     ],
     "author": "Ivan Lazarov",
     "version": {
-        "Major": 0,
-        "Minor": 9,
+        "Major": 1,
+        "Minor": 0,
         "Patch": 0
     },
     "instanceNameFormat": "Upload Symbols to Raygun",
@@ -93,6 +93,9 @@
         "NoSymbolFilesFound": "No symbol files found at: %s",
         "Filename": "symbols=%s",
         "CompressingSymbols": "Compressing symbols",
-        "UploadingSymbols": "Uploading symbols"
+        "UploadingSymbols": "Uploading symbols",
+        "ServerErrorGeneric": "Uploading of symbols failed.",
+        "ServerErrorUnauthorized": "Uploading of symbols failed with error 'Unauthorized'. Please check the credentials used.",
+        "ServerErrorNotFound": "Uploading of symbols failed with error 'Not Found'. Please make sure the Raygun application '%s' exists."
     }
 }

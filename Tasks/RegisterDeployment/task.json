@@ -1,0 +1,84 @@
+{
+  "id": "657654c6-ae43-45cf-94c9-f0488f0006ee",
+  "name": "RegisterDeployment",
+  "friendlyName": "Register Deployment",
+  "description": "Register Deployment with Raygun",
+  "author": "Gareth van der Berg",
+  "helpMarkDown": "[More Information](https://marketplace.visualstudio.com/items?itemName=raygun.vsts-extension)",
+  "category": "Deploy",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "0"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Register $(version) with Raygun",
+  "inputs": [
+    {
+      "name": "authToken",
+      "type": "string",
+      "label": "Auth Token",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": ""
+    },
+    {
+      "name": "apiKey",
+      "type": "string",
+      "label": "Api Key",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": ""
+    },
+    {
+      "name": "version",
+      "type": "string",
+      "label": "Version",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": ""
+    },
+    {
+      "name": "ownerName",
+      "type": "string",
+      "label": "Owner Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": ""
+    },
+    {
+      "name": "emailAddress",
+      "type": "string",
+      "label": "Email Address",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": ""
+    },
+    {
+      "name": "scmIdentifier",
+      "type": "string",
+      "label": "Scm Identifier",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": ""
+    },
+    {
+      "name": "releaseNotes",
+      "type": "string",
+      "label": "Release Notes",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": ""
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "RaygunDeploy.ps1"
+    }
+  }
+}

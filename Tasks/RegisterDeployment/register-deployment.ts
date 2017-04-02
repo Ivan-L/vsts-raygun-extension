@@ -22,8 +22,6 @@ async function run() {
             comment: tl.getInput('releaseNotes', false)
         };
         let options = Object.assign({ 'json': true, 'body': command }, requestOptions);
-        let echoPath = tl.which('echo');
-        let rc1: number = await tl.tool(echoPath).arg(JSON.stringify(options)).exec();
 
         await registerDeployment(options);
 

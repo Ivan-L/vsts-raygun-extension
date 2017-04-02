@@ -1,7 +1,9 @@
 {
   "globalDependencies": {
-    "node": "registry:dt/node#7.0.0+20170322231424",
-    "q": "registry:dt/q#1.0.0+20170315012124",
-    "request": "registry:dt/request#0.0.0+20170323073920"
+    "form-data": "registry:dt/form-data#0.0.0+20160724024111",
+    "mocha": "registry:dt/mocha#2.2.5+20161028141524",
+    "node": "registry:dt/node#6.0.0+20161121110008",
+    "q": "registry:dt/q#0.0.0+20161004185634",
+    "request": "registry:dt/request#0.0.0+20161116202412"
   }
 }

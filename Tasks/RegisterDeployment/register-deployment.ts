@@ -26,8 +26,7 @@ async function run() {
         await registerDeployment(options);
 
         tl.setResult(tl.TaskResult.Succeeded, tl.loc('SuccessfullyRegistered'));
-    }
-    catch (err) {
+    } catch (err) {
         tl.setResult(tl.TaskResult.Failed, err.message);
     }
 }
@@ -41,29 +40,24 @@ function getFullErrorMessage(httpResponse, message: string): string {
 function getRequestAuthOptions(): request.CoreOptions {
     let authType: string = tl.getInput('authType', true);
 
-    switch (authType) {
-        case 'ServiceEndpoint':
-            {
-                let serviceEndpoint: tl.EndpointAuthorization = tl.getEndpointAuthorization(tl.getInput('serviceEndpoint', true), false);
+    if (authType === 'ServiceEndpoint') {
+        let serviceEndpoint: tl.EndpointAuthorization = tl.getEndpointAuthorization(tl.getInput('serviceEndpoint', true), false);
 
-                tl.debug('-- Obtained external access token from service endpoint');
+        tl.debug('-- Obtained external access token from service endpoint');
 
-                return {
-                    qs: {
-                        authToken: serviceEndpoint.parameters['apitoken']
-                    }
-                };
+        return {
+            qs: {
+                authToken: serviceEndpoint.parameters['apitoken']
             }
-        case 'ExternalAccessToken':
-            {
-                tl.debug('-- Obtained external access token from task');
+        };
+    } else {
+        tl.debug('-- Obtained external access token from task');
 
-                return {
-                    qs: {
-                        authToken: tl.getInput('externalAccessToken', true)
-                    }
-                };
+        return {
+            qs: {
+                authToken: tl.getInput('externalAccessToken', true)
             }
+        };
     }
 }
 

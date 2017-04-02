@@ -100,9 +100,6 @@
   "execution": {
     "Node": {
       "target": "register-deployment.js"
-    },
-    "PowerShell3": {
-      "target": "RaygunDeploy.ps1"
     }
   },
   "messages": {

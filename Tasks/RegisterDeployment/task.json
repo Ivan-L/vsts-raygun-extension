@@ -99,7 +99,7 @@
   ],
   "execution": {
     "Node": {
-      "target": "upload-symbols.js"
+      "target": "register-deployment.js"
     },
     "PowerShell3": {
       "target": "RaygunDeploy.ps1"

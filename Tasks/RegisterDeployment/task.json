@@ -1,7 +1,7 @@
 {
   "id": "657654c6-ae43-45cf-94c9-f0488f0006ee",
   "name": "RegisterDeployment",
-  "friendlyName": "Register Deployment",
+  "friendlyName": "Register Deployment with Raygun",
   "description": "Register Deployment with Raygun",
   "author": "Gareth van der Berg",
   "helpMarkDown": "[More Information](https://marketplace.visualstudio.com/items?itemName=raygun.vsts-extension)",
@@ -16,16 +16,37 @@
     "Minor": "0",
     "Patch": "0"
   },
-  "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Register $(version) with Raygun",
   "inputs": [
     {
-      "name": "authToken",
-      "type": "string",
-      "label": "Auth Token",
+      "name": "authType",
+      "type": "pickList",
+      "label": "Authentication Method",
+      "defaultValue": "ServiceEndpoint",
+      "helpMarkDown": "",
+      "options": {
+        "ServiceEndpoint": "Service Endpoint",
+        "ExternalAccessToken": "External Access Token"
+      }
+    },
+    {
+      "name": "serviceEndpoint",
+      "type": "connectedService:raygun",
+      "label": "Service Endpoint",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": ""
+      "helpMarkDown": "The TFS/Team Services service endpoint that specifies the identity used to upload the symbols.",
+      "visibleRule": "authType = ServiceEndpoint"
+    },
+    {
+      "name": "externalAccessToken",
+      "type": "string",
+      "label": "External Access Token",
+      "defaultValue": "",
+      "isConfidential": true,
+      "required": true,
+      "helpMarkDown": "You can create this token within your user settings in Raygun, just navigate to (https://app.raygun.io/user) and check the External Access Token section.",
+      "visibleRule": "authType = ExternalAccessToken"
     },
     {
       "name": "apiKey",
@@ -77,8 +98,18 @@
     }
   ],
   "execution": {
+    "Node": {
+      "target": "upload-symbols.js"
+    },
     "PowerShell3": {
       "target": "RaygunDeploy.ps1"
     }
+  },
+  "messages": {
+    "SuccessfullyRegistered": "Successfully registered deployment with Raygun",
+    "UploadingSymbols": "Registering deployment",
+    "ServerErrorGeneric": "Registering deployment failed.",
+    "ServerErrorUnauthorized": "Registering deployment failed with error 'Unauthorized'. Please check the credentials used.",
+    "ServerErrorNotFound": "Registering deployment failed with error 'Not Found'. Please make sure the Raygun application '%s' exists."
   }
 }

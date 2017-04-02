@@ -1,0 +1,19 @@
+{
+  "name": "vsts-raygun-register-deployment",
+  "description": "VSTS Raygun Register Deployment",
+  "dependencies": {
+    "q": "^1.5.0",
+    "request": "^2.81.0",
+    "vsts-task-lib": "^2.0.2-preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ivan-L/vsts-raygun-extension.git"
+  },
+  "author": "Gareth van der Berg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ivan-L/vsts-raygun-extension/issues"
+  },
+  "homepage": "https://github.com/Ivan-L/vsts-raygun-extension"
+}

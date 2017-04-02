@@ -1,0 +1,7 @@
+{
+  "globalDependencies": {
+    "node": "registry:dt/node#7.0.0+20170322231424",
+    "q": "registry:dt/q#1.0.0+20170315012124",
+    "request": "registry:dt/request#0.0.0+20170323073920"
+  }
+}

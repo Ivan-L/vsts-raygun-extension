@@ -1,0 +1,115 @@
+{
+  "id": "657654c6-ae43-45cf-94c9-f0488f0006ee",
+  "name": "RegisterDeployment",
+  "friendlyName": "ms-resource:loc.friendlyName",
+  "description": "ms-resource:loc.description",
+  "author": "Gareth van der Berg",
+  "helpMarkDown": "ms-resource:loc.helpMarkDown",
+  "category": "Deploy",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "0"
+  },
+  "instanceNameFormat": "ms-resource:loc.instanceNameFormat",
+  "inputs": [
+    {
+      "name": "authType",
+      "type": "pickList",
+      "label": "ms-resource:loc.input.label.authType",
+      "defaultValue": "ServiceEndpoint",
+      "helpMarkDown": "",
+      "options": {
+        "ServiceEndpoint": "Service Endpoint",
+        "ExternalAccessToken": "External Access Token"
+      }
+    },
+    {
+      "name": "serviceEndpoint",
+      "type": "connectedService:raygun",
+      "label": "ms-resource:loc.input.label.serviceEndpoint",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.serviceEndpoint",
+      "visibleRule": "authType = ServiceEndpoint"
+    },
+    {
+      "name": "externalAccessToken",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.externalAccessToken",
+      "defaultValue": "",
+      "isConfidential": true,
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.externalAccessToken",
+      "visibleRule": "authType = ExternalAccessToken"
+    },
+    {
+      "name": "apiKey",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.apiKey",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": ""
+    },
+    {
+      "name": "version",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.version",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": ""
+    },
+    {
+      "name": "ownerName",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.ownerName",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": ""
+    },
+    {
+      "name": "emailAddress",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.emailAddress",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": ""
+    },
+    {
+      "name": "scmIdentifier",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.scmIdentifier",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": ""
+    },
+    {
+      "name": "releaseNotes",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.releaseNotes",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": ""
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "register-deployment.js"
+    },
+    "PowerShell3": {
+      "target": "RaygunDeploy.ps1"
+    }
+  },
+  "messages": {
+    "SuccessfullyRegistered": "ms-resource:loc.messages.SuccessfullyRegistered",
+    "UploadingSymbols": "ms-resource:loc.messages.UploadingSymbols",
+    "ServerErrorGeneric": "ms-resource:loc.messages.ServerErrorGeneric",
+    "ServerErrorUnauthorized": "ms-resource:loc.messages.ServerErrorUnauthorized",
+    "ServerErrorNotFound": "ms-resource:loc.messages.ServerErrorNotFound"
+  }
+}

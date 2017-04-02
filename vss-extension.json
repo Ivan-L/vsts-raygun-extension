@@ -48,6 +48,9 @@
     },
     "files": [
         {
+            "path": "_build/Tasks/RegisterDeployment"
+        },
+        {
             "path": "_build/Tasks/UploadSymbols"
         },
         {
@@ -60,6 +63,14 @@
         "vso.serviceendpoint"
     ],
     "contributions": [
+        {
+            "id": "register-deployment",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [ "ms.vss-distributed-task.tasks" ],
+            "properties": {
+                "name": "_build/Tasks/RegisterDeployment"
+            }
+        },
         {
             "id": "upload-symbols",
             "type": "ms.vss-distributed-task.task",

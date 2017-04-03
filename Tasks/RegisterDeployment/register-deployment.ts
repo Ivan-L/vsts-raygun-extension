@@ -43,13 +43,18 @@ function getRequestAuthOptions(): request.CoreOptions {
     if (authType === 'ServiceEndpoint') {
         let serviceEndpoint: tl.EndpointAuthorization = tl.getEndpointAuthorization(tl.getInput('serviceEndpoint', true), false);
 
-        tl.debug('-- Obtained external access token from service endpoint');
+        if (serviceEndpoint.scheme === 'ms.vss-endpoint.endpoint-auth-scheme-basic') {
+            tl.debug(tl.loc('InvalidAuthenticationScheme'));
 
-        return {
-            qs: {
-                authToken: serviceEndpoint.parameters['apitoken']
-            }
-        };
+            throw new Error(tl.loc('InvalidAuthenticationScheme'));
+        } else {
+            tl.debug('-- Obtained external access token from service endpoint');
+            return {
+                qs: {
+                    authToken: serviceEndpoint.parameters['apitoken']
+                }
+            };
+        }
     } else {
         tl.debug('-- Obtained external access token from task');
 

@@ -103,7 +103,7 @@
     }
   },
   "messages": {
-    "InvalidAuthenticationScheme": "Basic authentication scheme can not be used with this task.",
+    "InvalidAuthenticationScheme": "Basic authentication scheme can not be used with this task. External Auth Token is required.",
     "SuccessfullyRegistered": "Successfully registered deployment with Raygun",
     "UploadingSymbols": "Registering deployment",
     "ServerErrorGeneric": "Registering deployment failed.",

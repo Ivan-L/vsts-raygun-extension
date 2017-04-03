@@ -142,6 +142,9 @@ var buildNodeTask = function (taskPath, outDir) {
     if (test('-f', rp('package.json'))) {
         run('npm install');
     }
+    if (test('-f', rp('typings.json'))) {
+        run('typings install');
+    }
     run('tsc --outDir ' + outDir + ' --rootDir ' + taskPath);
     cd(originalDir);
 }

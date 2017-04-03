@@ -16,7 +16,7 @@
     "Minor": "0",
     "Patch": "0"
   },
-  "instanceNameFormat": "Register $(version) with Raygun",
+  "instanceNameFormat": "Register deployment with Raygun",
   "inputs": [
     {
       "name": "authType",

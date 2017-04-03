@@ -54,7 +54,7 @@
       "label": "Api Key",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The API Key for your Raygun Application."
+      "helpMarkDown": "The API Key of your Raygun Application."
     },
     {
       "name": "version",
@@ -62,7 +62,7 @@
       "label": "Version",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The version of your application that you've just deployed."
+      "helpMarkDown": "The version of your Application that this deployment is releasing. Should be the same as the version string you use in your Raygun error reports."
     },
     {
       "name": "ownerName",
@@ -70,7 +70,7 @@
       "label": "Owner Name",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The name of the user who created this deployment."
+      "helpMarkDown": "The name of the person who is creating this deployment. Ideally should be a Raygun User."
     },
     {
       "name": "emailAddress",
@@ -78,7 +78,7 @@
       "label": "Email Address",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The email address of the user who created this deployment (should be a raygun user)."
+      "helpMarkDown": "The email address of the person who is creating this deployment. Ideally should be a Raygun User's email address."
     },
     {
       "name": "scmIdentifier",
@@ -103,7 +103,6 @@
     }
   },
   "messages": {
-    "InvalidAuthenticationScheme": "Basic authentication scheme can not be used with this task. External Auth Token is required.",
     "SuccessfullyRegistered": "Successfully registered deployment with Raygun",
     "UploadingSymbols": "Registering deployment",
     "ServerErrorGeneric": "Registering deployment failed.",

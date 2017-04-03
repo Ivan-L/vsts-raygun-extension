@@ -44,9 +44,14 @@ function getRequestAuthOptions(): request.CoreOptions {
         let serviceEndpoint: tl.EndpointAuthorization = tl.getEndpointAuthorization(tl.getInput('serviceEndpoint', true), false);
 
         if (serviceEndpoint.scheme === 'ms.vss-endpoint.endpoint-auth-scheme-basic') {
-            tl.debug(tl.loc('InvalidAuthenticationScheme'));
+            tl.debug('-- Obtained username/password from service endpoint');
 
-            throw new Error(tl.loc('InvalidAuthenticationScheme'));
+            return {
+                auth: {
+                    username: serviceEndpoint.parameters['username'],
+                    password: serviceEndpoint.parameters['password']
+                }
+            };
         } else {
             tl.debug('-- Obtained external access token from service endpoint');
             return {

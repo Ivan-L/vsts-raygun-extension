@@ -64,7 +64,7 @@ function getRequestAuthOptions(): request.CoreOptions {
 function registerDeployment(options: request.CoreOptions): Q.Promise<void> {
     let raygunUrl: string = 'https://app.raygun.io/deployments';
 
-    tl.debug('-- Register deployment to Raygun url ${raygunUrl}');
+    tl.debug(`-- Register deployment to Raygun url ${raygunUrl}`);
 
     let defer: Q.Deferred<void> = Q.defer<void>();
 

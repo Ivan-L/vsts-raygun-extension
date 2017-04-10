@@ -16,8 +16,8 @@ async function run() {
         let command = {
             apiKey: tl.getInput('apiKey', true),
             version: tl.getInput('version', true),
-            ownerName: tl.getInput('ownerName', true),
-            emailAddress: tl.getInput('emailAddress', true),
+            ownerName: tl.getInput('ownerName', false),
+            emailAddress: tl.getInput('emailAddress', false),
             scmIdentifier: tl.getInput('scmIdentifier', false),
             comment: tl.getInput('releaseNotes', false)
         };
